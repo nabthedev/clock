@@ -1,138 +1,26 @@
-@import url(https://fonts.bunny.net/css?family=roboto-mono:100,700);
-
-:root {
-  color-scheme: light dark;
-  --bg-dark: rgb(10, 10, 10);
-  --bg-light: rgb(248, 244, 238);
-  --txt-light: rgb(10, 10, 10);
-  --txt-dark: rgb(245, 245, 245);
-  --line-light: rgba(0 0 0 / .25);
-  --line-dark: rgba(255 255 255 / .25);
-  --clr-bg: light-dark(var(--bg-light), var(--bg-dark));
-  --clr-txt: light-dark(var(--txt-light), var(--txt-dark));
-  --clr-lines: light-dark(var(--line-light), var(--line-dark));
-  --time-display: none;
-}
-
-:root:has(input#toggle-time:checked) {
-  --time-display: block;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: var(--clr-bg);
-  color: var(--clr-txt);
-  min-height: 100svh;
-  margin: 0;
-  font-family: "Jura", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  display: grid;
-  place-items: center;
-  gap: 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+background-color: #333;
+font-family: Arial, sans-serif;
+color: #fff;
+text-align: center;
 }
-
-.controls {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  translate: -50% 0;
-  display: grid;
-  gap: 1rem;
-  font-size: .7rem;
-  padding: 0.25em .75em 0.25em 0.25em;
-  border-radius: 5px;
-  border: 1px solid var(--clr-lines);
+.date-time {
+font-size: 2rem;
+padding: 30px;
+background-color: #444;
+border-radius: 10px;
+box-shadow: 0 0 10px #00000080;
 }
-
-.controls > label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.clock {
-  --clock-radius: clamp(100px, 14vw, 320px);
-  --time-clr: light-dark(rgba(0 0 0 / .5),rgba(255 255 255 / .35));
-  --dot-radius: 10px;
-  --dot-bg: light-dark(rgba(0 0 0 / .5),rgba(255 255 255 / .6));
-  --dot-opacity: .2;
-  --dot-hours-clr: rgb(0, 105, 168);
-  --dot-mins-clr: rgb(0, 188, 255);
-  --dot-secs-clr: rgb(251, 44, 54);
-  --dot-hours-w: clamp(7px, 1vw,16px);
-  --dot-mins-w: clamp(5px, .75vw,12px);
-  --dot-secs-w: clamp(5px, .75vw,12px);
-  --dot-hours-h: clamp(20px, 5vw,60px);
-  --dot-mins-h: clamp(10px, 2.5vw,30px);
-  --dot-secs-h: var(--dot-secs-w);
-  --dot-hours-ratio: 1/4;
-  --dot-mins-ratio: 1/3;
-  --dot-secs-ratio: 1/1;
-  width: calc(var(--clock-radius) * 2);
-  height: calc(var(--clock-radius) * 2);
-  border-radius: 50%;
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.clock > * {
-  grid-area: 1/1;
-}
-
 .time {
-  display: var(--time-display);
-  color: var(--time-clr);
-  font-size: clamp(2rem, 3.5vw + .45rem, 4rem);
-  font-family: 'Roboto Mono', monospace;
+font-size: 2.5rem;
+margin-bottom: 10px;
+font-weight: bold;
 }
-
-/* generic dot */
-.dot {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: var(--dot-w,16px);
-  height: var(--dot-h,16px);
-  border-radius: var(--dot-radius);
-  background-color: var(--dot-bg);
-  opacity: var(--dot-opacity);
-}
-
-/* seconds ring */
-.seconds .dot {
-  --dot-opacity: 0;
-  --dot-w: var(--dot-secs-w);
-  --dot-h: var(--dot-secs-h);
-}
-.seconds .dot.active {
-  --dot-bg: var(--dot-secs-clr);
-  --dot-opacity: 1;
-}
-
-/* minutes ring */
-.minutes .dot {
-  --dot-w: var(--dot-mins-w);
-  --dot-h: var(--dot-mins-h);
-}
-.minutes .dot:nth-child(5n + 1) {
-  --dot-opacity: 0;
-}
-.minutes .dot.active {
-  --dot-bg: var(--dot-mins-clr);
-  --dot-opacity: 1;
-}
-
-/* hours ring */
-.hours .dot {
-  --dot-w: var(--dot-hours-w);
-  --dot-h: var(--dot-hours-h);
-}
-.hours .dot.active {
-  --dot-bg: var(--dot-hours-clr);
-  --dot-opacity: 1;
+.date {
+font-size: 2.2rem;
 }
